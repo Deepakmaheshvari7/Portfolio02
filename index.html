@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deepak Maheshvari - Frontend Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Added Typed.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="Images/favicon.ico">
+    
+  </head>
+
+  <body class="antialiased">
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Header & Navigation -->
+    <header
+      id="header"
+      class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+    >
+      <div class="container mx-auto px-4">
+        <nav class="flex justify-between items-center py-4">
+          <a href="#" class="text-2xl font-bold text-white"
+            >DM<span class="text-blue-500">.</span></a
+          >
+          <div class="hidden md:flex items-center space-x-8 text-gray-300">
+            <a href="#about" class="hover:text-blue-400 transition-colors"
+              >About</a
+            >
+            <a
+              href="#qualifications"
+              class="hover:text-blue-400 transition-colors"
+              >Qualifications</a
+            >
+            <a href="#projects" class="hover:text-blue-400 transition-colors"
+              >Projects</a
+            >
+            <a href="#contact" class="hover:text-blue-400 transition-colors"
+              >Contact</a
+            >
+          </div>
+          <a
+            href="#contact"
+            class="hidden md:inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-transform duration-300 hover:scale-105"
+          >
+            Hire Me
+          </a>
+          <button id="mobile-menu-button" class="md:hidden text-white">
+            <i data-lucide="menu"></i>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div
+      id="mobile-menu"
+      class="hidden md:hidden fixed top-0 left-0 w-full h-full bg-gray-900/90 backdrop-blur-sm z-40"
+    >
+      <div class="flex flex-col items-center justify-center h-full space-y-8">
+        <a
+          href="#about"
+          class="text-2xl text-gray-300 hover:text-blue-400 transition-colors mobile-link"
+          >About</a
+        >
+        <a
+          href="#qualifications"
+          class="text-2xl text-gray-300 hover:text-blue-400 transition-colors mobile-link"
+          >Qualifications</a
+        >
+        <a
+          href="#projects"
+          class="text-2xl text-gray-300 hover:text-blue-400 transition-colors mobile-link"
+          >Projects</a
+        >
+        <a
+          href="#contact"
+          class="text-2xl text-gray-300 hover:text-blue-400 transition-colors mobile-link"
+          >Contact</a
+        >
+      </div>
+    </div>
+
+    <main class="container mx-auto px-4 pt-24">
+      <!-- Hero Section -->
+      <section
+        id="home"
+        class="min-h-[80vh] flex flex-col md:flex-row items-center justify-between"
+      >
+        <div class="md:w-1/2 text-center md:text-left">
+          <h1
+            class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 fade-in-up"
+            style="animation-delay: 100ms"
+          >
+            Hi, I'm <span class="text-gradient">Deepak</span>
+          </h1>
+          <h2
+            class="text-2xl md:text-3xl font-medium text-gray-300 mb-8 fade-in-up"
+            style="animation-delay: 200ms"
+          >
+            I'm a <span id="typing-effect"></span>
+          </h2>
+          <p
+            class="text-lg text-gray-400 mb-8 max-w-xl mx-auto md:mx-0 fade-in-up"
+            style="animation-delay: 300ms"
+          >
+            I craft beautiful and responsive web interfaces that drive product
+            success. Passionate about clean code and exceptional user
+            experiences.
+          </p>
+
+          <div
+            class="flex justify-center md:justify-start items-center space-x-4 mb-8 fade-in-up"
+            style="animation-delay: 500ms"
+          >
+            <a
+              href="https://github.com/Deepakmaheshvari7"
+              target="_blank"
+              class="text-gray-400 hover:text-white transition-transform duration-300 hover:scale-110"
+            >
+              <i data-lucide="github" class="w-8 h-8"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/deepak-maheshvari/"
+              target="_blank"
+              class="text-gray-400 hover:text-white transition-transform duration-300 hover:scale-110"
+            >
+              <i data-lucide="linkedin" class="w-8 h-8"></i>
+            </a>
+            <a
+              href="https://wa.me/782844792"
+              target="_blank"
+              class="text-gray-400 hover:text-white transition-transform duration-300 hover:scale-110"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-8 h-8"
+              >
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+                />
+              </svg>
+            </a>
+          </div>
+          <a
+            href="#projects"
+            class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition-transform duration-300 hover:scale-105 inline-block fade-in-up"
+            style="animation-delay: 700ms"
+          >
+            View My Work
+          </a>
+        </div>
+        <div
+          class="mt-12 md:mt-0 md:w-1/2 flex justify-center fade-in-up"
+          style="animation-delay: 200ms"
+        >
+          <div
+            class="relative w-80 h-92 flex items-center justify-center hero-image-container"
+            style="animation: float 3s ease-in-out infinite"
+          >
+            <img
+              src="Images/me.png"
+              class="w-full h-full object-cover hero-image-shadow"
+              alt="Deepak Maheshvari Profile Picture"
+              onerror="this.onerror=null;this.src='https://placehold.co/320x368/111827/d1d5db?text=Deepak';"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="py-20 reveal">
+        <h2 class="text-4xl font-bold text-center text-white mb-12">
+          About <span class="text-gradient">Me</span>
+        </h2>
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <div class="md:w-2/3">
+            <h3 class="text-2xl font-semibold text-white mb-4">
+              Get to know me!
+            </h3>
+            <p class="text-gray-400 mb-4 leading-relaxed">
+              I'm a dedicated Frontend Developer with a passion for building
+              intuitive, dynamic, and user-friendly web applications. My journey
+              into web development started with a curiosity for how things work
+              on the internet, and it has evolved into a career where I can
+              blend creativity with problem-solving.
+            </p>
+            <p class="text-gray-400 mb-6 leading-relaxed">
+              I specialize in technologies like React and Tailwind CSS, and I'm
+              always eager to learn new things to stay on the cutting edge. I
+              thrive in collaborative environments and am passionate about
+              turning complex problems into elegant solutions. When I'm not
+              coding, you can find me exploring new tech articles or
+              contributing to open-source projects.
+            </p>
+            <a
+              href="#contact"
+              class="text-blue-400 font-semibold hover:underline"
+              >Let's connect!</a
+            >
+          </div>
+          <div class="md:w-1/3 w-full">
+            <h3
+              class="text-2xl font-semibold text-white mb-4 text-center md:text-left"
+            >
+              My Skills
+            </h3>
+            <div class="flex flex-wrap justify-center md:justify-start gap-3">
+              <span
+                class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full transition-transform hover:scale-110"
+                >HTML</span
+              >
+              <span
+                class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full transition-transform hover:scale-110"
+                >CSS</span
+              >
+              <span
+                class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full transition-transform hover:scale-110"
+                >JavaScript</span
+              >
+              <span
+                class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full transition-transform hover:scale-110"
+                >React</span
+              >
+              <span
+                class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full transition-transform hover:scale-110"
+                >Next.js</span
+              >
+              <span
+                class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full transition-transform hover:scale-110"
+                >Tailwind CSS</span
+              >
+              <span
+                class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full transition-transform hover:scale-110"
+                >Git & GitHub</span
+              >
+              <span
+                class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full transition-transform hover:scale-110"
+                >Firebase</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills & Education Section -->
+      <section id="qualifications" class="py-20 reveal">
+        <h2 class="text-4xl font-bold text-center text-white mb-16">
+          Skills & <span class="text-gradient">Education</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <!-- Skills Column -->
+          <div class="glass-effect p-6 sm:p-8 rounded-xl">
+            <!-- Tabs -->
+            <div class="border-b border-gray-700 mb-6">
+              <nav class="-mb-px flex space-x-6" aria-label="Tabs">
+                <button
+                  class="tab-button active whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg"
+                  data-tab="frontend"
+                >
+                  Frontend
+                </button>
+                <button
+                  class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg"
+                  data-tab="ai-ml"
+                >
+                  AI/ML
+                </button>
+                <button
+                  class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg"
+                  data-tab="tools"
+                >
+                  Tools
+                </button>
+              </nav>
+            </div>
+
+            <!-- Tab Panels -->
+            <div>
+              <div id="frontend-panel" class="skills-panel active">
+                <div class="space-y-4">
+                  <div class="skill">
+                    <span class="font-medium text-white">React & Next.js</span>
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mt-1">
+                      <div
+                        class="skill-bar-fill h-2.5 rounded-full"
+                        style="width: 90%"
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="skill">
+                    <span class="font-medium text-white">JavaScript </span>
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mt-1">
+                      <div
+                        class="skill-bar-fill h-2.5 rounded-full"
+                        style="width: 85%"
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="skill">
+                    <span class="font-medium text-white">Tailwind CSS</span>
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mt-1">
+                      <div
+                        class="skill-bar-fill h-2.5 rounded-full"
+                        style="width: 95%"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="ai-ml-panel" class="skills-panel">
+                <div class="space-y-4">
+                  <div class="skill">
+                    <span class="font-medium text-white">Python</span>
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mt-1">
+                      <div
+                        class="skill-bar-fill h-2.5 rounded-full"
+                        style="width: 80%"
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="skill">
+                    <span class="font-medium text-white"
+                      >TensorFlow / PyTorch (Basics)</span
+                    >
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mt-1">
+                      <div
+                        class="skill-bar-fill h-2.5 rounded-full"
+                        style="width: 60%"
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="skill">
+                    <span class="font-medium text-white"
+                      >IoT & Embedded Systems</span
+                    >
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mt-1">
+                      <div
+                        class="skill-bar-fill h-2.5 rounded-full"
+                        style="width: 70%"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="tools-panel" class="skills-panel">
+                <div class="space-y-4">
+                  <div class="skill">
+                    <span class="font-medium text-white">Git & GitHub</span>
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mt-1">
+                      <div
+                        class="skill-bar-fill h-2.5 rounded-full"
+                        style="width: 95%"
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="skill">
+                    <span class="font-medium text-white">Firebase</span>
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mt-1">
+                      <div
+                        class="skill-bar-fill h-2.5 rounded-full"
+                        style="width: 80%"
+                      ></div>
+                    </div>
+                  </div>
+                  <div class="skill">
+                    <span class="font-medium text-white">Vercel</span>
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mt-1">
+                      <div
+                        class="skill-bar-fill h-2.5 rounded-full"
+                        style="width: 90%"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Education Column -->
+          <div>
+            <div class="glass-effect glow-yellow p-6 sm:p-8 rounded-xl h-full">
+              <h3
+                class="text-2xl font-semibold text-white mb-6 flex items-center"
+              >
+                <i
+                  data-lucide="graduation-cap"
+                  class="w-6 h-6 mr-3 text-yellow-400 header-icon"
+                ></i
+                >Education
+              </h3>
+              <div class="relative border-l-2 border-gray-700 pl-8">
+                <div
+                  class="mb-8 relative timeline-item"
+                  style="animation-delay: 100ms"
+                >
+                  <div
+                    class="timeline-marker absolute -left-[42px] top-1.5 w-4 h-4 bg-blue-500 rounded-full border-4 border-gray-800"
+                  ></div>
+                  <p class="text-sm text-gray-400">2022 - 2026</p>
+                  <h4 class="font-bold text-lg text-white mt-1">
+                    Bachelor of Technology in CSE-IOT
+                  </h4>
+                  <p class="text-gray-400">
+                    Rajiv Gandhi Technical University, Bhopal, Madhya Pradesh
+                  </p>
+                </div>
+                <div
+                  class="relative timeline-item"
+                  style="animation-delay: 300ms"
+                >
+                  <div
+                    class="timeline-marker absolute -left-[42px] top-1.5 w-4 h-4 bg-blue-500 rounded-full border-4 border-gray-800"
+                  ></div>
+                  <p class="text-sm text-gray-400">2020 - 2022</p>
+                  <h4 class="font-bold text-lg text-white mt-1">
+                    Higher Secondary Education
+                  </h4>
+                  <p class="text-gray-400">
+                    Govt. Higher Secondary School, Kothri Kalan, Madhya Pradesh
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="py-20 reveal">
+        <h2 class="text-4xl font-bold text-center text-white mb-12">
+          My <span class="text-gradient">Projects</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project Card 1 -->
+          <div
+            class="glass-effect rounded-xl overflow-hidden group flex flex-col"
+          >
+            <img
+              src="Images/stuminy1.png"
+              alt="Project 1"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6 flex flex-col flex-grow">
+              <h3
+                id="project-title-1"
+                class="text-xl font-bold text-white mb-2"
+              >
+                Student-Alumni Interaction platform
+              </h3>
+              <p
+                id="project-desc-1"
+                class="text-gray-400 mb-4 text-sm flex-grow"
+              >
+                Alumni-Student Interaction Platform (SIH 2024) – A platform for
+                alumni engagement, mentorship, and networking. Frontend
+                completed, backend pending.
+              </p>
+              <div id="project-tech-1" class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="text-xs bg-blue-900/50 text-blue-300 py-1 px-3 rounded-full"
+                  >React</span
+                >
+                <span
+                  class="text-xs bg-blue-900/50 text-blue-300 py-1 px-3 rounded-full"
+                  >Tailwind CSS</span
+                >
+              </div>
+              <div class="flex items-center justify-start mt-auto">
+                <a
+                  href="https://deepakmaheshvari7.github.io/Stuminy/"
+                  target="_blank"
+                  class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold"
+                >
+                  Live Demo
+                  <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 2 -->
+          <div
+            class="glass-effect rounded-xl overflow-hidden group flex flex-col"
+          >
+            <img
+              src="Images/attendance.jpg"
+              alt="Project 2"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6 flex flex-col flex-grow">
+              <h3
+                id="project-title-2"
+                class="text-xl font-bold text-white mb-2"
+              >
+                Auto-Attendance
+              </h3>
+              <p
+                id="project-desc-2"
+                class="text-gray-400 mb-4 text-sm flex-grow"
+              >
+                IoT-Based Face Recognition Attendance System – Uses ESP32-CAM,
+                and CNN model based facial recognition system to mark attendance
+                automatically.
+              </p>
+              <div id="project-tech-2" class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="text-xs bg-blue-900/50 text-blue-300 py-1 px-3 rounded-full"
+                  >Next.js</span
+                >
+                <span
+                  class="text-xs bg-blue-900/50 text-blue-300 py-1 px-3 rounded-full"
+                  >Firebase</span
+                >
+                <span
+                  class="text-xs bg-blue-900/50 text-blue-300 py-1 px-3 rounded-full"
+                  >Tailwind CSS</span
+                >
+              </div>
+              <div class="flex items-center justify-start mt-auto">
+                <a
+                  href="#"
+                  target="_blank"
+                  class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold"
+                >
+                  Live Demo
+                  <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 3 -->
+          <div
+            class="glass-effect rounded-xl overflow-hidden group flex flex-col"
+          >
+            <img
+              src="Images/nomadic.jpg"
+              alt="Project 3"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6 flex flex-col flex-grow">
+              <h3
+                id="project-title-3"
+                class="text-xl font-bold text-white mb-2"
+              >
+                Education Website
+              </h3>
+              <p
+                id="project-desc-3"
+                class="text-gray-400 mb-4 text-sm flex-grow"
+              >
+                Nomadic Education Website – Supports education for nomadic
+                children with a flexible enrollment and assessment system.
+                Frontend completed, backend pending.
+              </p>
+              <div id="project-tech-3" class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="text-xs bg-blue-900/50 text-blue-300 py-1 px-3 rounded-full"
+                  >HTML</span
+                >
+                <span
+                  class="text-xs bg-blue-900/50 text-blue-300 py-1 px-3 rounded-full"
+                  >CSS</span
+                >
+                <span
+                  class="text-xs bg-blue-900/50 text-blue-300 py-1 px-3 rounded-full"
+                  >JavaScript</span
+                >
+              </div>
+              <div class="flex items-center justify-start mt-auto">
+                <a
+                  href="https://deepakmaheshvari7.github.io/Nomadic-Education/"
+                  target="_blank"
+                  class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold"
+                >
+                  Live Demo
+                  <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 4 -->
+          <div
+            class="glass-effect rounded-xl overflow-hidden group flex flex-col"
+          >
+            <img
+              src="Images/portfolio.png"
+              alt="Project 3"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6 flex flex-col flex-grow">
+              <h3
+                id="project-title-3"
+                class="text-xl font-bold text-white mb-2"
+              >
+                Personal Portfolio 1.0
+              </h3>
+              <p
+                id="project-desc-3"
+                class="text-gray-400 mb-4 text-sm flex-grow"
+              >
+                A personal portfolio showcasing my projects, skills, and
+                achievements in web development, highlighting creativity,
+                technical expertise, and a passion for innovative design.
+              </p>
+              <div id="project-tech-3" class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="text-xs bg-blue-900/50 text-blue-300 py-1 px-3 rounded-full"
+                  >HTML</span
+                >
+                <span
+                  class="text-xs bg-blue-900/50 text-blue-300 py-1 px-3 rounded-full"
+                  >CSS</span
+                >
+                <span
+                  class="text-xs bg-blue-900/50 text-blue-300 py-1 px-3 rounded-full"
+                  >JavaScript</span
+                >
+              </div>
+              <div class="flex items-center justify-start mt-auto">
+                <a
+                  href="https://deepak-portfolio-beige.vercel.app/"
+                  target="_blank"
+                  class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold"
+                >
+                  Live Demo
+                  <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 5 -->
+          <div
+            class="glass-effect rounded-xl overflow-hidden group flex flex-col"
+          >
+            <img
+              src="Images/portfolio02.png"
+              alt="Project 3"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6 flex flex-col flex-grow">
+              <h3
+                id="project-title-3"
+                class="text-xl font-bold text-white mb-2"
+              >
+                Personal Portfolio 2.0
+              </h3>
+              <p
+                id="project-desc-3"
+                class="text-gray-400 mb-4 text-sm flex-grow"
+              >
+                A modern AI-powered personal portfolio showcasing my latest
+                projects, advanced web design skills, and innovative approach to
+                integrating creativity with intelligent technology.
+              </p>
+              <div id="project-tech-3" class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="text-xs bg-blue-900/50 text-blue-300 py-1 px-3 rounded-full"
+                  >HTML</span
+                >
+                <span
+                  class="text-xs bg-blue-900/50 text-blue-300 py-1 px-3 rounded-full"
+                  >CSS</span
+                >
+                <span
+                  class="text-xs bg-blue-900/50 text-blue-300 py-1 px-3 rounded-full"
+                  >JavaScript</span
+                >
+              </div>
+              <div class="flex items-center justify-start mt-auto">
+                <a
+                  href="https://deepak-portfolio-beige.vercel.app/"
+                  target="_blank"
+                  class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold"
+                >
+                  Live Demo
+                  <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-20 reveal">
+        <h2 class="text-4xl font-bold text-center text-white mb-4">
+          Get in <span class="text-gradient">Touch</span>
+        </h2>
+        <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
+          I'm currently looking for new opportunities. Whether you have a
+          question or just want to say hi, feel free to reach out. My inbox is
+          always open!
+        </p>
+        <div class="max-w-xl mx-auto glass-effect rounded-xl p-8">
+          <form id="contact-form">
+            <div class="mb-4">
+              <label for="name" class="block text-gray-300 mb-2"
+                >Your Name</label
+              >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="w-full bg-gray-800 border border-gray-700 rounded-lg py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="John Doe"
+                required
+              />
+            </div>
+            <div class="mb-4">
+              <label for="email" class="block text-gray-300 mb-2"
+                >Your Email</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="w-full bg-gray-800 border border-gray-700 rounded-lg py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="hey!.what'sUp@example.com"
+                required
+              />
+            </div>
+            <div class="mb-6">
+              <label for="message" class="block text-gray-300 mb-2"
+                >Message</label
+              >
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                class="w-full bg-gray-800 border border-gray-700 rounded-lg py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Your message here..."
+                required
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              id="submit-button"
+              class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-transform duration-300 hover:scale-105"
+            >
+              Send Message
+            </button>
+            <div id="form-result" class="mt-4 text-center text-sm"></div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 mt-20">
+      <div class="container mx-auto px-4 py-6 text-center text-gray-500">
+        <div class="flex justify-center items-center space-x-4">
+          <a
+            href="https://github.com/d-praja"
+            target="_blank"
+            class="hover:text-white transition-colors"
+          >
+            <i data-lucide="github" class="w-6 h-6"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/deepak-prajapati-1a35b8226/"
+            target="_blank"
+            class="hover:text-white transition-colors"
+          >
+            <i data-lucide="linkedin" class="w-6 h-6"></i>
+          </a>
+          <a
+            href="https://twitter.com/DEEPAK_PRAJAP"
+            target="_blank"
+            class="hover:text-white transition-colors"
+          >
+            <i data-lucide="twitter" class="w-6 h-6"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Link to external script -->
+    <script src="script.js"></script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
