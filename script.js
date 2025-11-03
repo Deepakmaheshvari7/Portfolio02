@@ -54,7 +54,7 @@ contactForm.addEventListener("submit", async (e) => {
 
   // --- IMPORTANT ---
   // Replace "YOUR_ACCESS_KEY_HERE" with your actual key from Web3Forms.
-  const accessKey = "ACCESS_KEY";
+  const accessKey = ${{ secrets.ACCESS_KEY }};
   if (accessKey === "YOUR_ACCESS_KEY_HERE") {
     formResult.innerText =
       "Please replace YOUR_ACCESS_KEY_HERE in the script.";
@@ -254,5 +254,6 @@ tabs.forEach((tab) => {
     document.getElementById(`${tabTarget}-panel`).classList.add("active");
   });
 });
+
 
 
